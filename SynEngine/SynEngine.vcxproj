@@ -11,11 +11,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Developer\Log\Log.h" />
     <ClInclude Include="Source\Runtime\Core\Application.h" />
     <ClInclude Include="Source\Syn.h" />
     <ClInclude Include="Source\Runtime\Core\EntryPoint.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Developer\Log\Log.cpp" />
     <ClCompile Include="Source\Runtime\Core\Application.cpp" />
     <ClCompile Include="Source\Runtime\Core\Core.h" />
   </ItemGroup>
@@ -67,6 +69,7 @@
       <PreprocessorDefinitions>SYN_PLATFORM_WINDOWS;SYN_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)SynEngine\Source\ThirdParty\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -82,6 +85,7 @@
       <PreprocessorDefinitions>SYN_PLATFORM_WINDOWS;SYN_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)SynEngine\Source\ThirdParty\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

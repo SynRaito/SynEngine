@@ -24,12 +24,18 @@
     <ClInclude Include="Source\Runtime\Core\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Developer\Log\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Runtime\Core\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Runtime\Core\Core.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Developer\Log\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
