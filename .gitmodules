@@ -1,0 +1,3 @@
+[submodule "SynEngine/Source/ThirdParty/spdlog"]
+	path = SynEngine/Source/ThirdParty/spdlog
+	url = https://github.com/gabime/spdlog

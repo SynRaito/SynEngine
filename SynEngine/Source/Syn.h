@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Syn/Runtime/Core/Application.h"
+#include "Runtime/Core/Application.h"
 
 //Entry Point
-#include "Syn/Runtime/Core/EntryPoint.h"
+#include "Runtime/Core/EntryPoint.h"
