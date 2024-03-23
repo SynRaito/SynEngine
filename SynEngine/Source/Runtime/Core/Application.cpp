@@ -1,4 +1,5 @@
 #include "Application.h"
+#include <iostream>
 
 namespace Syn {
 
@@ -13,7 +14,7 @@ namespace Syn {
 	
 	void Application::Run() {
 		while (true) {
-
+			std::cout << "test" << std::endl;
 		}
 	}
 

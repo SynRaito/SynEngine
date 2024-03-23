@@ -1,42 +1,40 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Developer">
+      <UniqueIdentifier>{8BB2F587-F71C-AAFE-405B-5BA4AC048853}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Developer\Log">
+      <UniqueIdentifier>{DC176D19-48D8-E84F-1113-32CD7D922D2C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Runtime">
+      <UniqueIdentifier>{4995DAC4-B574-5960-BE8C-E4362AEBBFC1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Runtime\Core">
+      <UniqueIdentifier>{416F811B-2DD2-10C0-D657-4976C299DC42}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Runtime\Core\Application.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Source\Developer\Log\Log.h">
+      <Filter>Developer\Log</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Syn.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Source\Runtime\Core\Application.h">
+      <Filter>Runtime\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Core.h">
+      <Filter>Runtime\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Runtime\Core\EntryPoint.h">
-      <Filter>Header Files</Filter>
+      <Filter>Runtime\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Developer\Log\Log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="Source\Syn.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Runtime\Core\Application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Runtime\Core\Core.h">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Developer\Log\Log.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Developer\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Core\Application.cpp">
+      <Filter>Runtime\Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
