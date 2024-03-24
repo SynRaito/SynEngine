@@ -56,19 +56,23 @@ project "SynEngine"
 	filter "configurations:Debug"
 		defines "SYN_DEBUG"
 		symbols "On"
+		buildoptions "/MDd"
 
 	filter "configurations:Release"
 		defines "SYN_RELEASE"
 		symbols "On"
+		buildoptions "/MD"
 
 	filter "configurations:Dist"
 		defines "SYN_DIST"
 		symbols "On"
+		buildoptions "/MD"
 	
 project "GameProj"
-	 location "GameProj"
-	 kind "ConsoleApp"
-	 language "C++"
+	location "GameProj"
+	kind "ConsoleApp"
+	language "C++"
+	staticruntime "off"
 
 	targetdir ("Binaries/" .. outputdir .. "/%{prj.name}")
 	objdir ("Intermediate/" .. outputdir .. "/%{prj.name}")
@@ -82,6 +86,7 @@ project "GameProj"
 	includedirs
 	{
 		"ThirdParty/spdlog/include",
+		"ThirdParty/glfw/include",
 		"SynEngine/Source"
 	}
 
@@ -103,11 +108,14 @@ project "GameProj"
 	filter "configurations:Debug"
 		defines "SYN_DEBUG"
 		symbols "On"
+		buildoptions "/MDd"
 
 	filter "configurations:Release"
 		defines "SYN_RELEASE"
 		symbols "On"
+		buildoptions "/MD"
 
 	filter "configurations:Dist"
 		defines "SYN_DIST"
 		symbols "On"
+		buildoptions "/MD"
