@@ -26,7 +26,15 @@ project "SynEngine"
 
 	includedirs
 	{
-		"ThirdParty/spdlog/include"
+		"ThirdParty/spdlog/include",
+		"ThirdParty/glfw/include"
+	}
+
+	links
+	{
+		"ThirdParty/glfw/lib-vc2022/glfw3.lib",
+		"opengl32.lib",
+		"dwmapi.lib"
 	}
 
 	filter "system:windows"
