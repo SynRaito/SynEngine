@@ -82,7 +82,7 @@
       <AdditionalIncludeDirectories>..\ThirdParty\spdlog\include;..\ThirdParty\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -104,7 +104,7 @@
       <AdditionalIncludeDirectories>..\ThirdParty\spdlog\include;..\ThirdParty\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -126,7 +126,7 @@
       <AdditionalIncludeDirectories>..\ThirdParty\spdlog\include;..\ThirdParty\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -141,14 +141,19 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Editor\EditorInstance.h" />
+    <ClInclude Include="Source\Developer\Event\Event.h" />
     <ClInclude Include="Source\Developer\Log\Log.h" />
+    <ClInclude Include="Source\Editor\Window.h" />
     <ClInclude Include="Source\Runtime\Core\Application.h" />
     <ClInclude Include="Source\Runtime\Core\Core.h" />
     <ClInclude Include="Source\Runtime\Core\EntryPoint.h" />
     <ClInclude Include="Source\Syn.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Editor\EditorInstance.cpp" />
     <ClCompile Include="Source\Developer\Log\Log.cpp" />
+    <ClCompile Include="Source\Editor\Window.cpp" />
     <ClCompile Include="Source\Runtime\Core\Application.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
