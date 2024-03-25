@@ -17,6 +17,9 @@ namespace Syn::Math {
 		float x, y;
 
 	public:
+		inline constexpr Vector2D Zero() { return Vector2D(0, 0); }
+		inline constexpr Vector2D One() { return Vector2D(1, 1); }
+
 		inline Vector2D operator+(Vector2D vector) { return Vector2D(x + vector.x, y + vector.y); }
 		inline Vector2D& operator+=(Vector2D vector) {
 			x += vector.x;
@@ -43,6 +46,8 @@ namespace Syn::Math {
 		}
 		inline float length() { return std::sqrtf(x * x + y * y); }
 		static float length(Vector2D vector) { return std::sqrtf(vector.x * vector.x + vector.y * vector.y); }
+		inline Vector2D normalize() { return (*this) / length(); }
+		static Vector2D normalize(Vector2D vector) { return vector / vector.length(); }
 		static float dot(Vector2D firstVector, Vector2D secondVector) { return firstVector.x * secondVector.x + firstVector.y * secondVector.y; }
 		inline float dot(Vector2D vector) { return x * vector.x + y * vector.y; }
 		inline float cross(Vector2D vector) { return length() * vector.length() * std::sinf(PI / 2 - angleBetweenRad(vector)); }

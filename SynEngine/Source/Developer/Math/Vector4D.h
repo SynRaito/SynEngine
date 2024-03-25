@@ -20,6 +20,9 @@ namespace Syn::Math {
 		float x, y, z, w;
 
 	public:
+		inline constexpr Vector4D Zero() { return Vector4D(0, 0, 0, 0); }
+		inline constexpr Vector4D One() { return Vector4D(1, 1, 1, 1); }
+
 		inline Vector4D operator+(Vector4D vector) { return Vector4D(x + vector.x, y + vector.y, z + vector.z, w + vector.w); }
 		inline Vector4D& operator+=(Vector4D vector) {
 			x += vector.x;
@@ -54,6 +57,8 @@ namespace Syn::Math {
 		}
 		inline float length() { return std::sqrtf(x * x + y * y + z * z + w * w); }
 		static float length(Vector4D vector) { return std::sqrtf(vector.x * vector.x + vector.y * vector.y + vector.z * vector.z + vector.w * vector.w); }
+		inline Vector4D normalize() { return (*this) / length(); }
+		static Vector4D normalize(Vector4D vector) { return vector / vector.length(); }
 		static float dot(Vector4D firstVector, Vector4D secondVector) { return firstVector.x * secondVector.x + firstVector.y * secondVector.y + firstVector.z * secondVector.z + firstVector.w * secondVector.w; }
 		inline float dot(Vector4D vector) { return x * vector.x + y * vector.y + z * vector.z + w * vector.w; }
 		inline float cross(Vector4D vector) { return length() * vector.length() * std::sinf(PI / 2 - angleBetweenRad(vector)); }

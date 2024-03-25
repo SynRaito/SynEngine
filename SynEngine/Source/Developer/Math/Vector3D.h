@@ -18,6 +18,9 @@ namespace Syn::Math {
 		float x, y, z;
 
 	public:
+		inline constexpr Vector3D Zero() { return Vector3D(0, 0, 0); }
+		inline constexpr Vector3D One() { return Vector3D(1, 1, 1); }
+
 		inline Vector3D operator+(Vector3D vector3d) { return Vector3D(x + vector3d.x, y + vector3d.y, z + vector3d.z); }
 		inline Vector3D& operator+=(Vector3D vector3d) { 
 			x += vector3d.x; 
@@ -48,6 +51,8 @@ namespace Syn::Math {
 		}
 		inline float length() { return std::sqrtf(x * x + y * y + z * z); }
 		static float length(Vector3D vector3d) { return std::sqrtf(vector3d.x * vector3d.x + vector3d.y * vector3d.y + vector3d.z * vector3d.z); }
+		inline Vector3D normalize() { return (*this) / length(); }
+		static Vector3D normalize(Vector3D vector) { return vector / vector.length(); }
 		static float dot(Vector3D firstVector3d, Vector3D secondVector3d) { return firstVector3d.x * secondVector3d.x + firstVector3d.y * secondVector3d.y + firstVector3d.z * secondVector3d.z; }
 		inline float dot(Vector3D vector3d) { return x * vector3d.x + y * vector3d.y + z * vector3d.z; }
 		inline float cross(Vector3D vector3d) { return length() * vector3d.length() * std::sinf(PI / 2 - angleBetweenRad(vector3d)); }
