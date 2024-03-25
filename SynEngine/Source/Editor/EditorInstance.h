@@ -15,7 +15,7 @@ namespace Syn::Editor {
 		void RenderWindows();
 
 	public:
-		std::vector<Syn::Editor::Window*> Windows;
+		std::vector<Syn::Editor::Window*> m_windows;
 
 		void CreateWindow(int width, int height, const char* name = "");
 

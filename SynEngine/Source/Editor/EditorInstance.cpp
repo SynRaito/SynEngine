@@ -2,8 +2,8 @@
 
 Syn::Editor::EditorInstance::~EditorInstance()
 {
-	for (int i = 0; i < Windows.size(); ++i) {
-		delete Windows[i];
+	for (int i = 0; i < m_windows.size(); ++i) {
+		delete m_windows[i];
 	}
 }
 
@@ -11,12 +11,12 @@ void Syn::Editor::EditorInstance::CreateWindow(int width, int height, const char
 {
 	Syn::Editor::Window* NewWindow = new Window(1000, 1000, name);
 
-	Windows.push_back(NewWindow);
+	m_windows.push_back(NewWindow);
 }
 
 void Syn::Editor::EditorInstance::RenderWindows()
 {
-	for (Syn::Editor::Window* window : Windows) {
+	for (Syn::Editor::Window* window : m_windows) {
 		window->Update();
 	}
 }
