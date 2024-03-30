@@ -4,8 +4,14 @@
     <Filter Include="Developer">
       <UniqueIdentifier>{8BB2F587-F71C-AAFE-405B-5BA4AC048853}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Developer\Event">
+      <UniqueIdentifier>{1CB09728-883B-05ED-914C-88E1FD5661ED}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Developer\Log">
       <UniqueIdentifier>{DC176D19-48D8-E84F-1113-32CD7D922D2C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Developer\Math">
+      <UniqueIdentifier>{44661047-3034-044D-19C8-74730535E0B1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Editor">
       <UniqueIdentifier>{8C1A20B0-78BC-4A86-6177-5EDA4DB8D1D6}</UniqueIdentifier>
@@ -13,15 +19,45 @@
     <Filter Include="Runtime">
       <UniqueIdentifier>{4995DAC4-B574-5960-BE8C-E4362AEBBFC1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Runtime\Components">
+      <UniqueIdentifier>{BEFA85C0-AADE-4616-133F-4169FF413198}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Runtime\Core">
       <UniqueIdentifier>{416F811B-2DD2-10C0-D657-4976C299DC42}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Developer\Event\Event.h">
+      <Filter>Developer\Event</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Developer\Log\Log.h">
       <Filter>Developer\Log</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Developer\Math\Vector2D.h">
+      <Filter>Developer\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Developer\Math\Vector3D.h">
+      <Filter>Developer\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Developer\Math\Vector4D.h">
+      <Filter>Developer\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\GameInstance.h">
+      <Filter>Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Window.h">
+      <Filter>Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Components\MeshRenderer.h">
+      <Filter>Runtime\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Components\Transform.h">
+      <Filter>Runtime\Components</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Runtime\Core\Application.h">
+      <Filter>Runtime\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Component.h">
       <Filter>Runtime\Core</Filter>
     </ClInclude>
     <ClInclude Include="Source\Runtime\Core\Core.h">
@@ -30,23 +66,45 @@
     <ClInclude Include="Source\Runtime\Core\EntryPoint.h">
       <Filter>Runtime\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Syn.h" />
-    <ClInclude Include="Source\Editor\Window.h">
-      <Filter>Editor</Filter>
+    <ClInclude Include="Source\Runtime\Core\GameObject.h">
+      <Filter>Runtime\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Developer\Event\Event.h" />
-    <ClInclude Include="Source\Editor\EditorInstance.h" />
+    <ClInclude Include="Source\Runtime\Core\Renderer.h">
+      <Filter>Runtime\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Runtime\Core\Scene.h">
+      <Filter>Runtime\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Syn.h" />
+    <ClInclude Include="Source\Runtime\Core\InputReceiver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Developer\Log\Log.cpp">
       <Filter>Developer\Log</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Runtime\Core\GameInstance.cpp">
+      <Filter>Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Core\Window.cpp">
+      <Filter>Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Components\MeshRenderer.cpp">
+      <Filter>Runtime\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Components\Transform.cpp">
+      <Filter>Runtime\Components</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Runtime\Core\Application.cpp">
       <Filter>Runtime\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Editor\Window.cpp">
-      <Filter>Editor</Filter>
+    <ClCompile Include="Source\Runtime\Core\GameObject.cpp">
+      <Filter>Runtime\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Editor\EditorInstance.cpp" />
+    <ClCompile Include="Source\Runtime\Core\Scene.cpp">
+      <Filter>Runtime\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Runtime\Core\Renderer.cpp" />
+    <ClCompile Include="Source\ThirdParty\glad.c" />
+    <ClCompile Include="Source\Runtime\Core\InputReceiver.cpp" />
   </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
 #include "../../Runtime/Core/Core.h"
 #include <vector>
 #include <functional>
+#include <iostream>
 
 namespace Syn {
 
@@ -51,11 +52,11 @@ namespace Syn {
 		};
 
 	private:
-		std::vector<LinkedEventClass<LinkedClass, void(LinkedClass::*)(T ...)>> m_functionReferences;
+		std::vector<LinkedEventClass<LinkedClass, void(LinkedClass::*)(T ...)>> functionReferences;
 
 	public:
 		inline size_t RefCount() {
-			return m_functionReferences.size();
+			return functionReferences.size();
 		}
 
 		inline void Register(LinkedClass& Obj, void(LinkedClass::* Ref)(T ...)) {
@@ -63,13 +64,15 @@ namespace Syn {
 			LinkedEventClassObj.ObjRef = &Obj;
 			LinkedEventClassObj.FuncRef = &Ref;
 
-			m_functionReferences.push_back(LinkedEventClassObj);
+			functionReferences.push_back(LinkedEventClassObj);
 		}
 
 		inline void Trigger(T ... args) {
-			for (auto Ref : m_functionReferences) {
-				if(Ref.ObjRef != nullptr)
+			for (auto &Ref : functionReferences) {
+				if (Ref.ObjRef != nullptr && Ref.FuncRef != nullptr) {
+					//std::invoke(*Ref.FuncRef, *Ref.ObjRef);
 					((*Ref.ObjRef).*(*Ref.FuncRef))(args...);
+				}
 			}
 		}
 

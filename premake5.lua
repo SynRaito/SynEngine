@@ -27,14 +27,16 @@ project "SynEngine"
 	includedirs
 	{
 		"ThirdParty/spdlog/include",
-		"ThirdParty/glfw/include"
+		"ThirdParty/glfw/include",
+		"ThirdParty/glad/**"
 	}
 
 	links
 	{
 		"ThirdParty/glfw/lib-vc2022/glfw3.lib",
 		"opengl32.lib",
-		"dwmapi.lib"
+		"dwmapi.lib",
+
 	}
 
 	filter "system:windows"
@@ -87,6 +89,7 @@ project "GameProj"
 	{
 		"ThirdParty/spdlog/include",
 		"ThirdParty/glfw/include",
+		"ThirdParty/glad/**",
 		"SynEngine/Source"
 	}
 

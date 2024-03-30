@@ -12,14 +12,13 @@ namespace Syn {
 	
 	void Application::Run() {
 
-		glfwInit();
-
-		EditorInstance.CreateWindow(1000, 1000, "Test");
+		GameInstance.CreateWindow(1000, 1000, "Test");
 
 		//Game Loop
 		while (true) {
 			//Render Loop
-			EditorInstance.Render();
+			
+			GameInstance.Update();
 		}
 	}
 
