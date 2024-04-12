@@ -11,8 +11,7 @@ namespace Syn::Math {
 #define PI 3.141592
 
 	public:
-		Vector3D() = default;
-		constexpr Vector3D(float x, float y, float z) : x(x), y(y), z(z) {}
+		constexpr Vector3D(float x = 0, float y = 0, float z = 0) : x(x), y(y), z(z) {}
 		constexpr Vector3D(const Vector3D& vector) : x(vector.x), y(vector.y), z(vector.z) {}
 
 	private:

@@ -13,8 +13,7 @@ namespace Syn::Math {
 #define PI 3.141592
 
 	public:
-		Vector4D() = default;
-		constexpr Vector4D(float x, float y, float z, float w) : x(x), y(y), z(z), w(w) {}
+		constexpr Vector4D(float x = 0, float y = 0, float z = 0, float w = 0) : x(x), y(y), z(z), w(w) {}
 		constexpr Vector4D(const Vector4D& vector) : x(vector.x), y(vector.y), z(vector.z), w(vector.w) {}
 
 	private:

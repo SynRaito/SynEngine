@@ -10,8 +10,7 @@ namespace Syn::Math {
 #define PI 3.141592
 
 	public:
-		Vector2D() = default;
-		constexpr Vector2D(float x, float y) : x(x), y(y) {}
+		constexpr Vector2D(float x = 0, float y = 0) : x(x), y(y) {}
 		constexpr Vector2D(const Vector2D& vector) : x(vector.x), y(vector.y) {}
 
 	private:
