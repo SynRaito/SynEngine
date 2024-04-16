@@ -21,7 +21,8 @@ project "SynEngine"
 	files
 	{
 		"%{prj.name}/Source/**.h",
-		"%{prj.name}/Source/**.cpp"
+		"%{prj.name}/Source/**.cpp",
+		"%{prj.name}/Source/**.c"
 	}
 
 	includedirs
@@ -82,7 +83,8 @@ project "GameProj"
 	files
 	{
 		"%{prj.name}/Source/**.h",
-		"%{prj.name}/Source/**.cpp"
+		"%{prj.name}/Source/**.cpp",
+		"%{prj.name}/Source/**.c"
 	}
 
 	includedirs
