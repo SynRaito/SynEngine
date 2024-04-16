@@ -1,23 +1,17 @@
 #pragma once
 
-#include "../../Developer/Event/Event.h"
 #include "Core.h"
-#include <glad.h>
-#include <glfw3.h>
+#include "InputKey.h"
 #include "Window.h"
 
 namespace Syn::Core {
-	class SYN_API InputReceiver {
+	class SYN_API InputReceiver  {
 
 	public:
 		InputReceiver() = default;
 
-	private:
+		void ProcessInputs(Window* window);
 
-	public:
-		void ProcessInputs(Syn::Core::Window* window);
-
-		Syn::LinkedEvent<Syn::Core::Window> OnEscape;
+		void RegisterEvent(InputKey::KeyCode KeyCode, InputKey::KeyState KeyState);
 	};
-
 }
