@@ -1,32 +1,43 @@
 #include "Window.h"
+#include <glad.h>
+#include <glfw3.h>
 #include <iostream>
+
+Syn::Core::Window::Window(int width, int height, const char* name) 
+{
+    glfwWindow = glfwCreateWindow(width, height, name, NULL, NULL);
+}
+
+GLFWwindow* Syn::Core::Window::GlfwWindow()
+{
+    return glfwWindow;
+}
 
 void Syn::Core::Window::Update()
 {
-	glfwMakeContextCurrent(glfwWindow);
+    glfwMakeContextCurrent(glfwWindow);
 
-	if (glfwWindowShouldClose(glfwWindow))
-	{
-		glfwTerminate();
+    if (glfwWindowShouldClose(glfwWindow))
+    {
+        glfwTerminate();
 
-		return;
-	}
-	
-	/* Render here */
+        return;
+    }
 
-	glClearColor(1, 1, 1, 1);
+    /* Render here */
 
-	glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(1, 1, 1, 1);
 
-	/* Swap front and back buffers */
-	glfwSwapBuffers(glfwWindow);
+    glClear(GL_COLOR_BUFFER_BIT);
 
-	/* Poll for and process events */
-	glfwPollEvents();
+    /* Swap front and back buffers */
+    glfwSwapBuffers(glfwWindow);
 
+    /* Poll for and process events */
+    glfwPollEvents();
 }
 
 void Syn::Core::Window::Close()
 {
-	glfwSetWindowShouldClose(glfwWindow, true);
+    glfwSetWindowShouldClose(glfwWindow, true);
 }

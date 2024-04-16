@@ -1,20 +1,17 @@
 #pragma once
 
 #include "Core.h"
-#include <vector>
-#include <glad.h>
-#include <glfw3.h>
+
+class GLFWwindow;
 
 namespace Syn::Core {
 
 	class SYN_API Window {
-
+	
 	public:
 
-		Window(int width, int height, const char* name = "") : width(width), height(height)
-		{
-			glfwWindow = glfwCreateWindow(width, height, name, NULL, NULL);
-		}
+		Window(int width, int height, const char* name = "");
+		
 
 	private:
 		int width;
@@ -22,7 +19,7 @@ namespace Syn::Core {
 		GLFWwindow* glfwWindow;
 
 		public:
-			inline GLFWwindow* GlfwWindow() { return glfwWindow; }
+			GLFWwindow* GlfwWindow();
 
 	public:
 		void Update();
