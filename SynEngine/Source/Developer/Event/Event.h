@@ -43,6 +43,9 @@ namespace Syn {
 		}
 	};
 
+	/***
+	 * T = Potential multiple parameters
+	**/
 	template<typename ... T>
 	class SYN_API LinkedEvent
 	{
@@ -61,6 +64,10 @@ namespace Syn {
 			return functionReferences.size();
 		}
 
+		/**
+		 * Example Usage : Register(obj, std::bind(&Syn::Core::TestFunc, obj));
+		 * obj must be derived from Object
+		 **/
 		inline void Register(Syn::Engine::PTR<Syn::Core::Object> Obj, std::function<void(T...)> Func) {
 			LinkedEventClass<T...> LinkedEventClassObj;
 			LinkedEventClassObj.ObjRef = Obj;
