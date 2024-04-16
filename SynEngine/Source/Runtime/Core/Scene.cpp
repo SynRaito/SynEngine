@@ -1,18 +1,18 @@
 #include "Scene.h"
 
-Syn::Scene::Scene()
+Syn::Core::Scene::Scene()
 {
 	m_gameObjects = new std::vector<GameObject*>();
 }
 
-Syn::Scene::~Scene()
+Syn::Core::Scene::~Scene()
 {
 	delete m_gameObjects;
 }
 
-void Syn::Scene::Update()
+void Syn::Core::Scene::Update()
 {
-	for (GameObject* gameObject : *m_gameObjects) {
+	for (Syn::Core::GameObject* gameObject : *m_gameObjects) {
 		gameObject->Update();
 	}
 }

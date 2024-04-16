@@ -3,10 +3,9 @@
 #include "Core.h"
 #include <vector>
 #include "GameObject.h"
+#include "InputReceiver.h"
 
-class GameObject;
-
-namespace Syn {
+namespace Syn::Core {
 
 	class SYN_API Scene {
 	public:
@@ -14,10 +13,9 @@ namespace Syn {
 		~Scene();
 
 	private:
-		std::vector<GameObject*>* m_gameObjects;
+		std::vector<Syn::Core::GameObject*>* m_gameObjects;
 	public:
 		void Update();
 
 	};
-
 }
