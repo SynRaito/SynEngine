@@ -1,5 +1,7 @@
 #include "GameInstance.h"
 #include <iostream>
+#include <glad.h>
+#include <glfw3.h>
 
 //Callback Decls
 void FrameBufferSizeCallback(GLFWwindow* window, int width, int height);
@@ -41,7 +43,7 @@ void Syn::Core::GameInstance::SetViewport(int width, int height)
 
 void Syn::Core::GameInstance::HandleInputRegisters()
 {
-	InputReceiver.OnEscape.Register(*Window, &Window::Close);
+	//InputReceiver.OnEscape.Register(*Window, &Window::Close);
 }
 
 void Syn::Core::GameInstance::Update()

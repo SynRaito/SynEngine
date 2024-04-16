@@ -1,23 +1,22 @@
 #pragma once
 
 #include "Core.h"
-#include <vector>
 #include "Component.h"
-#include "Scene.h"
+#include "Object.h"
 #include "../Components/Transform.h"
-#include <string>
-#include "../Components/MeshRenderer.h"
+#include <vector>
 
-namespace Syn {
+namespace Syn::Core {
 
-	class SYN_API GameObject {
+	class SYN_API GameObject : public Syn::Core::Object {
 	public:
-		GameObject(const char* name);
+		GameObject(std::string name);
+		GameObject();
 		~GameObject();
 
 	private:
-		const char* m_name;
-		std::vector<Component*>* m_components;
+		std::string m_name;
+		std::vector<Component*> m_components;
 		Syn::Components::Transform* m_transform;
 
 	public:
