@@ -9,7 +9,7 @@ namespace Syn::Components {
 	class SYN_API Transform : Component {
 
 	public:
-		Transform() = default;
+		Transform() : m_position(), m_rotation(), m_scale() {}
 		constexpr Transform(Syn::Math::Vector3D position, Syn::Math::Vector3D rotation, Syn::Math::Vector3D scale) : m_position(position), m_rotation(rotation), m_scale(scale) {}
 
 	private:
