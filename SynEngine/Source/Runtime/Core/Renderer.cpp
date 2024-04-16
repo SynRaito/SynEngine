@@ -1,4 +1,7 @@
+
 #include "Renderer.h"
+#include <glad.h>
+#include <glfw3.h>
 
 Syn::Core::Renderer::Renderer()
 {

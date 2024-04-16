@@ -1,7 +1,5 @@
 #pragma once
 
-#include <glad.h>
-#include <glfw3.h>
 #include <iostream>
 #include "Window.h"
 #include "Core.h"
