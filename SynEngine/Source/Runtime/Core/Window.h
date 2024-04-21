@@ -1,5 +1,7 @@
 #pragma once
 
+#include <glad.h>
+#include <glfw3.h>
 #include "Core.h"
 
 class GLFWwindow;

@@ -1,6 +1,4 @@
 #include "Window.h"
-#include <glad.h>
-#include <glfw3.h>
 #include <iostream>
 
 Syn::Core::Window::Window(int width, int height, const char* name) 
