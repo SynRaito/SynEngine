@@ -14,13 +14,17 @@ namespace Syn
 }
 
 namespace Syn::Engine {
+	// Don't pass by reference
 	template<class T>
 	class SYN_API PTR : public IGarbageCollectable {
 		friend class Syn::Core::GameInstance;
 
-	private:
+	public:
+
 		std::shared_ptr<T> rawPtr;
 		bool* isValid = nullptr;
+
+	private:
 
 		void* operator new(size_t size){
 			void *p = ::operator new(size); 
@@ -47,6 +51,35 @@ namespace Syn::Engine {
 			}
 		}
 
+		operator PTR<Syn::Core::Object>() const
+		{
+			PTR<Syn::Core::Object> ptr;
+			ptr.rawPtr = rawPtr;
+			ptr.isValid = isValid;
+			return ptr;
+		}
+
+		T* operator->()
+		{
+			return rawPtr.get();
+		}
+
+		bool operator == (const PTR<T>& ptr)
+		{
+			if (rawPtr.get() == ptr.rawPtr.get())
+				return true;
+			return false;
+		}
+
+		T& Get() {
+			return *rawPtr.get();
+		}
+
+		template<typename ... X>
+		std::function<void(X...)> Bind(void(T::*ref)(X ...)) {
+			return std::bind(ref, *rawPtr);
+		}
+
 		void Destroy() {
 			rawPtr.reset();
 			*isValid = false;
@@ -54,10 +87,6 @@ namespace Syn::Engine {
 
 		bool IsValid() {
 			return isValid;
-		}
-
-		T& Get() {
-			return rawPtr.get();
 		}
 
 		bool IsCollectable() override

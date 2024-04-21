@@ -1,9 +1,5 @@
 #pragma once
 
-#include <iostream>
-#include <vector>
-#include "Window.h"
-#include "Renderer.h"
 #include "Core.h"
 #include "GameInstance.h"
 
