@@ -49,7 +49,6 @@ void Syn::Core::GameInstance::HandleInputRegisters()
 void Syn::Core::GameInstance::Update()
 {
 	if (Window) {
-		InputReceiver.ProcessInputs(Window);
 		Window->Update();
 	}
 	else

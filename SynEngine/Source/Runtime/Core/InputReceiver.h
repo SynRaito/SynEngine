@@ -25,5 +25,9 @@ namespace Syn::Core {
 		 **/
 		void RegisterEvent(InputKey::KeyCode keyCode, InputKey::KeyState keyState, Engine::PTR<Core::Object> obj, void (Syn::Core::Object::* func)());
 		void UnregisterEvent(InputKey::KeyCode keyCode, InputKey::KeyState keyState, Engine::PTR<Object> obj, void (Syn::Core::Object::* func)());
+		
+		bool GetKeyDown(InputKey::KeyCode KeyCode);
+		bool GetKeyUp(InputKey::KeyCode KeyCode);
+		bool GetKey(InputKey::KeyCode KeyCode);
 	};
 }

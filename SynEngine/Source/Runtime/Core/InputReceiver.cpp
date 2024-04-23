@@ -128,3 +128,18 @@ void Syn::Core::InputReceiver::UnregisterEvent(InputKey::KeyCode keyCode, InputK
 		InputKeys[static_cast<int>(keyCode)].OnReleased.Unregister(obj, func);
 	}
 }
+
+bool Syn::Core::InputReceiver::GetKeyDown(InputKey::KeyCode KeyCode)
+{
+	return InputKeys[static_cast<int>(KeyCode)].state == InputKey::KeyState::Pressed;
+}
+
+bool Syn::Core::InputReceiver::GetKeyUp(InputKey::KeyCode KeyCode)
+{
+	return InputKeys[static_cast<int>(KeyCode)].state == InputKey::KeyState::Released;
+}
+
+bool Syn::Core::InputReceiver::GetKey(InputKey::KeyCode KeyCode)
+{
+	return InputKeys[static_cast<int>(KeyCode)].state == InputKey::KeyState::Hold;
+}
