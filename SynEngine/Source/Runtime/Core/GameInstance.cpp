@@ -29,7 +29,6 @@ void Syn::Core::GameInstance::CreateNewWindow(int width, int height, const char*
 		renderer->InitializeRenderer(*window);
 		SetViewport(width, height);
 		glfwSetFramebufferSizeCallback(window->GlfwWindow(), FrameBufferSizeCallback);
-		HandleInputRegisters();
 	}
 	else
 	{
@@ -42,19 +41,14 @@ void Syn::Core::GameInstance::SetViewport(int width, int height)
 	glViewport(0,0,width, height);
 }
 
-void Syn::Core::GameInstance::HandleInputRegisters()
-{
-	//InputReceiver.OnEscape.Register(*Window, &Window::Close);
-}
-
-void Syn::Core::GameInstance::Update()
+void Syn::Core::GameInstance::Update(float deltaTime)
 {
 	if (window) {
 		for (Syn::Engine::PTR<GameObject> gameObject : gameObjects)
 		{
-			gameObject->Update();
+			gameObject->Update(deltaTime);
 		}
-		window->Update();
+		window->Update(deltaTime);
 	}
 	else
 	{

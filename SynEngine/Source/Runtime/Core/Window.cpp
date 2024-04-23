@@ -11,7 +11,7 @@ GLFWwindow* Syn::Core::Window::GlfwWindow()
     return glfwWindow;
 }
 
-void Syn::Core::Window::Update()
+void Syn::Core::Window::Update(float deltaTime)
 {
     glfwMakeContextCurrent(glfwWindow);
 

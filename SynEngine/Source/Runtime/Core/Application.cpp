@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "../Engine/PTR.h"
+#include "../../Developer/Time/Time.h"
 
 namespace Syn {
 
@@ -17,21 +18,24 @@ namespace Syn {
 
 		// TEST PURPOSES
 
-		GameInstance.CreateNewWindow(1000, 1000, "Test");
+		gameInstance.CreateNewWindow(1000, 1000, "Test");
 
 		//TEST PURPOSES
 
 
 		//Game Loop
 		while (true) {
+			//Delta Time Evaluation
+			time.EvaluateDeltaTime();
+
 			//Input
-			GameInstance.inputReceiver.ProcessInputs(GameInstance.window);
+			gameInstance.inputReceiver.ProcessInputs(gameInstance.window);
 			
 			//Render Loop
-			GameInstance.Update();
+			gameInstance.Update(time.DeltaTime());
 
 			//Garbage Collection
-			GameInstance.garbageCollector.VisitObjects();
+			gameInstance.garbageCollector.VisitObjects();
 		}
 	}
 }

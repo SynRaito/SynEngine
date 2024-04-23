@@ -10,9 +10,9 @@ Syn::Core::Scene::~Scene()
 	delete m_gameObjects;
 }
 
-void Syn::Core::Scene::Update()
+void Syn::Core::Scene::Update(float deltaTime)
 {
 	for (Syn::Core::GameObject* gameObject : *m_gameObjects) {
-		gameObject->Update();
+		gameObject->Update(deltaTime);
 	}
 }

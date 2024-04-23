@@ -13,7 +13,7 @@ namespace Syn::Core {
 		Object();
 
 		void virtual Begin();
-		void virtual Update();
+		void virtual Update(float deltaTime);
 
 	};
 

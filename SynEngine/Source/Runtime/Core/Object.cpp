@@ -8,6 +8,6 @@ void Syn::Core::Object::Begin()
 {
 }
 
-void Syn::Core::Object::Update()
+void Syn::Core::Object::Update(float deltaTime)
 {
 }

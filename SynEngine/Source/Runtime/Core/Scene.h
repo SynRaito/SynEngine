@@ -15,7 +15,7 @@ namespace Syn::Core {
 	private:
 		std::vector<Syn::Core::GameObject*>* m_gameObjects;
 	public:
-		void Update();
+		void Update(float deltaTime);
 
 	};
 }

@@ -29,7 +29,6 @@ namespace Syn::Core {
 
 		void CreateNewWindow(int width, int height, const char* name = "");
 		void SetViewport(int width, int height);
-		void HandleInputRegisters();
 
 		/**
 		 * \brief Creates New GameObject
@@ -39,7 +38,7 @@ namespace Syn::Core {
 		template<class T>
 		Syn::Engine::PTR<T> CreateGameObject();
 		
-		void Update();
+		void Update(float deltaTime);
 	};
 
 	template<class T>

@@ -24,7 +24,7 @@ namespace Syn::Core {
 			GLFWwindow* GlfwWindow();
 
 	public:
-		void Update();
+		void Update(float deltaTime);
 
 		void Close();
 	};

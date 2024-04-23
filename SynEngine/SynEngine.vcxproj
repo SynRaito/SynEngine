@@ -166,6 +166,7 @@
     <ClInclude Include="Source\Runtime\Engine\ObjectGC.h" />
     <ClInclude Include="Source\Runtime\Engine\PTR.h" />
     <ClInclude Include="Source\Syn.h" />
+    <ClInclude Include="Source\Developer\Time\Time.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Developer\Log\Log.cpp" />
@@ -182,6 +183,7 @@
     <ClCompile Include="Source\Runtime\Core\Window.cpp" />
     <ClCompile Include="Source\Runtime\Engine\ObjectGC.cpp" />
     <ClCompile Include="Source\ThirdParty\glad.c" />
+    <ClCompile Include="Source\Developer\Time\Time.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

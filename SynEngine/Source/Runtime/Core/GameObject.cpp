@@ -24,7 +24,7 @@ void Syn::Core::GameObject::Begin()
 	Object::Begin();
 }
 
-void Syn::Core::GameObject::Update()
+void Syn::Core::GameObject::Update(float deltaTime)
 {
 }
 

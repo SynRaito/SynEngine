@@ -91,6 +91,9 @@
       <Filter>Runtime\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Source\Syn.h" />
+    <ClInclude Include="Source\Developer\Time\Time.h">
+      <Filter>Developer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Developer\Log\Log.cpp">
@@ -132,5 +135,7 @@
     <ClCompile Include="Source\Runtime\Engine\ObjectGC.cpp">
       <Filter>Runtime\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Source\ThirdParty\glad.c" />
+    <ClCompile Include="Source\Developer\Time\Time.cpp" />
   </ItemGroup>
 </Project>

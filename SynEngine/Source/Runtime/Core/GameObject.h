@@ -21,7 +21,7 @@ namespace Syn::Core {
 
 	public:
 		void Begin() override;
-		void Update() override;
+		void Update(float deltaTime) override;
 
 		void AddComponent(Component& component);
 
