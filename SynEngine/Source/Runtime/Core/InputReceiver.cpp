@@ -105,7 +105,7 @@ void Syn::Core::InputReceiver::HandleInputState(Window &window, std::pair<const 
 }
 
 
-void Syn::Core::InputReceiver::RegisterEvent(InputKey::KeyCode keyCode, InputKey::KeyState keyState, Engine::PTR<Object> obj, std::function<void()> func)
+void Syn::Core::InputReceiver::RegisterEvent(InputKey::KeyCode keyCode, InputKey::KeyState keyState, Engine::PTR<Object> obj, void (Syn::Core::Object::* func)())
 {
 	if(keyState == InputKey::KeyState::Pressed)
 	{
@@ -117,7 +117,7 @@ void Syn::Core::InputReceiver::RegisterEvent(InputKey::KeyCode keyCode, InputKey
 	}
 }
 
-void Syn::Core::InputReceiver::UnregisterEvent(InputKey::KeyCode keyCode, InputKey::KeyState keyState, Engine::PTR<Object> obj, std::function<void()> func)
+void Syn::Core::InputReceiver::UnregisterEvent(InputKey::KeyCode keyCode, InputKey::KeyState keyState, Engine::PTR<Object> obj, void (Syn::Core::Object::* func)())
 {
 	if (keyState == InputKey::KeyState::Pressed)
 	{

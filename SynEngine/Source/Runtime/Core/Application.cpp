@@ -23,8 +23,8 @@ namespace Syn {
 
 		public:
 
-			void TestFuncEnter() {
-				std::cout << "Enter";
+			void TestFuncInt(int i) {
+				std::cout << i;
 			}
 
 			void TestFuncEsc() {
@@ -32,11 +32,27 @@ namespace Syn {
 			}
 		};
 
-		Syn::Engine::PTR<Test> test = GameInstance.CreateGameObject<Test>();
+		class Test2 : public Test {
+		public:
+			void Deneme() {
+				std::cout << "Deneme";
+			}
+		};
+		void(Test::*ptr)() = static_cast<void(Test::*)()>(&Test2::Deneme);
+		Test2 t2;
+		Test t = static_cast<Test>(t);
+		(t.*ptr)();
 
-		GameInstance.InputReceiver.RegisterEvent(Syn::Core::InputKey::KeyCode::ENTER, Syn::Core::InputKey::KeyState::Pressed, test, test.Bind(&Test::TestFuncEnter));
-		GameInstance.InputReceiver.RegisterEvent(Syn::Core::InputKey::KeyCode::ESCAPE, Syn::Core::InputKey::KeyState::Released, test, test.Bind(&Test::TestFuncEsc));
-		GameInstance.InputReceiver.UnregisterEvent(Syn::Core::InputKey::KeyCode::ENTER, Syn::Core::InputKey::KeyState::Pressed, test, test.Bind(&Test::TestFuncEnter));
+		DYNAMIC_LINKED_EVENT_ONE_PARAM(int) event1;
+
+		Syn::Engine::PTR<Test> testObj = GameInstance.CreateGameObject<Test>();
+
+		event1.Register(testObj, WRAP_LINKED_EVENT_FUNCTION_ONE_PARAM(&Test::TestFuncInt,int));
+
+		event1.Trigger(10);
+		
+		GameInstance.InputReceiver.RegisterEvent(Syn::Core::InputKey::KeyCode::ESCAPE, Syn::Core::InputKey::KeyState::Released, testObj, WRAP_LINKED_EVENT_FUNCTION(&Test::TestFuncEsc));
+		GameInstance.InputReceiver.UnregisterEvent(Syn::Core::InputKey::KeyCode::ESCAPE, Syn::Core::InputKey::KeyState::Released, testObj, WRAP_LINKED_EVENT_FUNCTION(&Test::TestFuncEsc));
 
 		//TEST PURPOSES
 

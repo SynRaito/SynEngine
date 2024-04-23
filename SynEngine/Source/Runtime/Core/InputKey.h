@@ -96,8 +96,8 @@ namespace Syn::Core {
 		KeyCode keyCode;
 		KeyState state;
 
-		LinkedEvent<> OnPressed;
-		LinkedEvent<> OnReleased;
+		DYNAMIC_LINKED_EVENT OnPressed;
+		DYNAMIC_LINKED_EVENT OnReleased;
 
 	public:
 		void SetState(KeyState KeyState);

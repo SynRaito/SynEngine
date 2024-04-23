@@ -20,10 +20,10 @@ namespace Syn::Core {
 		void ProcessInputs(Window* window);
 
 		/**
-		 * Example Usage : Register(keyCode, keyState, obj, PTR<T>::obj.Bind(&Syn::Core::TestFunc));
-		 * obj must be derived from Object
+		 * Example Usage : RegisterEvent(KeyCode, KeyState, obj, DYNAMIC_LINKED_EVENT(&Syn::Core::Obj::TestFunc));
+		 * obj must be PTR
 		 **/
-		void RegisterEvent(InputKey::KeyCode keyCode, InputKey::KeyState keyState, Engine::PTR<Core::Object> obj, std::function<void()> func);
-		void UnregisterEvent(InputKey::KeyCode keyCode, InputKey::KeyState keyState, Engine::PTR<Object> obj, std::function<void()> func);
+		void RegisterEvent(InputKey::KeyCode keyCode, InputKey::KeyState keyState, Engine::PTR<Core::Object> obj, void (Syn::Core::Object::* func)());
+		void UnregisterEvent(InputKey::KeyCode keyCode, InputKey::KeyState keyState, Engine::PTR<Object> obj, void (Syn::Core::Object::* func)());
 	};
 }
