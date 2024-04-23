@@ -10,8 +10,10 @@ namespace Syn::Core {
 	class SYN_API Object {
 
 	public:
+		Object();
 
-	private:
+		void virtual Begin();
+		void virtual Update();
 
 	};
 

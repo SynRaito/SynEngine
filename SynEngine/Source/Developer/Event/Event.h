@@ -82,12 +82,12 @@ namespace Syn
         class SYN_API LinkedEventClass
         {
         public:
-            Syn::Engine::PTR<Syn::Core::Object> ObjRef;
-            void (Syn::Core::Object::*FuncRef)(T...);
+            Syn::Engine::PTR<Syn::Core::Object> objRef;
+            void (Syn::Core::Object::*funcRef)(T...);
 
             void operator ()(T... args)
             {
-                return (this->ObjRef.Get().*this->FuncRef)(args...);
+                return (this->objRef.Get().*this->funcRef)(args...);
             }
         };
 
@@ -107,8 +107,8 @@ namespace Syn
         void Register(Syn::Engine::PTR<Syn::Core::Object> Obj, void (Syn::Core::Object::*Func)(T...))
         {
             LinkedEventClass<T...> LinkedEventClassObj;
-            LinkedEventClassObj.ObjRef = Obj;
-            LinkedEventClassObj.FuncRef = Func;
+            LinkedEventClassObj.objRef = Obj;
+            LinkedEventClassObj.funcRef = Func;
 
             functionReferences.push_back(LinkedEventClassObj);
         }
@@ -118,7 +118,7 @@ namespace Syn
             auto found = std::find_if(functionReferences.begin(), functionReferences.end(),
                                       [&](LinkedEventClass<T...> const& lec)
                                       {
-                                          return lec.ObjRef == Obj && Func == lec.FuncRef;
+                                          return lec.objRef == Obj && Func == lec.funcRef;
                                       });
             if (found != functionReferences.end())
             {
@@ -130,7 +130,7 @@ namespace Syn
         {
             for (auto& Ref : functionReferences)
             {
-                if (Ref.ObjRef.IsValid())
+                if (Ref.objRef.IsValid())
                 {
                     Ref(args...);
                 }
@@ -139,13 +139,13 @@ namespace Syn
 
         LinkedEvent<T...>& operator+(LinkedEventClass<T...> ClassObj)
         {
-            Register(ClassObj->ObjRef, ClassObj->FuncRef);
+            Register(ClassObj->objRef, ClassObj->funcRef);
             return *this;
         }
 
         LinkedEvent<T...>& operator+=(LinkedEventClass<T...> ClassObj)
         {
-            Register(ClassObj->ObjRef, ClassObj->FuncRef);
+            Register(ClassObj->objRef, ClassObj->funcRef);
             return *this;
         }
     };

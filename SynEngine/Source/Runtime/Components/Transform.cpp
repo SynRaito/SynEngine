@@ -2,5 +2,5 @@
 
 void Syn::Components::Transform::Translate(Syn::Math::Vector3D vector)
 {
-	m_position += vector;
+	position += vector;
 }

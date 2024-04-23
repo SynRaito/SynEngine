@@ -2,6 +2,7 @@
 
 #include "../Core/Core.h"
 #include "../Engine/ObjectGC.h"
+#include "../Core/GameObject.h"
 #include "ObjectGC.h"
 #include <memory>
 
@@ -58,6 +59,14 @@ namespace Syn::Engine {
 		operator PTR<Syn::Core::Object>() const
 		{
 			PTR<Syn::Core::Object> ptr;
+			ptr.rawPtr = rawPtr;
+			ptr.isValid = isValid;
+			return ptr;
+		}
+
+		operator PTR<Syn::Core::GameObject>() const
+		{
+			PTR<Syn::Core::GameObject> ptr;
 			ptr.rawPtr = rawPtr;
 			ptr.isValid = isValid;
 			return ptr;

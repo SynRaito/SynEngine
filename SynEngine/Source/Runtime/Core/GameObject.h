@@ -15,16 +15,17 @@ namespace Syn::Core {
 		~GameObject();
 
 	private:
-		std::string m_name;
-		std::vector<Component*> m_components;
-		Syn::Components::Transform* m_transform;
+		std::string name;
+		std::vector<Component*> components;
+		Syn::Components::Transform* transform;
 
 	public:
-		inline Syn::Components::Transform& Transform() { return *m_transform; }
+		void Begin() override;
+		void Update() override;
 
 		void AddComponent(Component& component);
 
-		void virtual Update() {}
+		inline Syn::Components::Transform& Transform() { return *transform; }
 	};
 
 }

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <glad.h>
 #include <glfw3.h>
+#include "../../Developer/Log/Log.h"
 
 //Callback Decls
 void FrameBufferSizeCallback(GLFWwindow* window, int width, int height);
@@ -9,30 +10,30 @@ void FrameBufferSizeCallback(GLFWwindow* window, int width, int height);
 
 Syn::Core::GameInstance::GameInstance()
 {
-	Renderer = new Syn::Core::Renderer();
+	renderer = new Syn::Core::Renderer();
 }
 
 Syn::Core::GameInstance::~GameInstance()
 {
-	delete Window;
-	delete Renderer;
+	delete window;
+	delete renderer;
 }
 
-void Syn::Core::GameInstance::CreateWindow(int width, int height, const char* name)
+void Syn::Core::GameInstance::CreateNewWindow(int width, int height, const char* name)
 {
 	Syn::Core::Window* NewWindow = new Syn::Core::Window(width, height, name);
 
 	if (NewWindow) {
-		Window = NewWindow;
+		window = NewWindow;
 
-		Renderer->InitializeRenderer(*Window);
+		renderer->InitializeRenderer(*window);
 		SetViewport(width, height);
-		glfwSetFramebufferSizeCallback(Window->GlfwWindow(), FrameBufferSizeCallback);
+		glfwSetFramebufferSizeCallback(window->GlfwWindow(), FrameBufferSizeCallback);
 		HandleInputRegisters();
 	}
 	else
 	{
-		std::cout << "Window cannot be initialized!" << std::endl;
+		SYN_ENGINE_ERROR("Window cannot be initialized!");
 	}
 }
 
@@ -48,12 +49,16 @@ void Syn::Core::GameInstance::HandleInputRegisters()
 
 void Syn::Core::GameInstance::Update()
 {
-	if (Window) {
-		Window->Update();
+	if (window) {
+		for (Syn::Engine::PTR<GameObject> gameObject : gameObjects)
+		{
+			gameObject->Update();
+		}
+		window->Update();
 	}
 	else
 	{
-		std::cout << "Window is not created! Use CreateWindow to specift and create the one." << std::endl;
+		SYN_ENGINE_ERROR("Window is not created! Use CreateNewWindow to specify and create the one.");
 	}
 }
 

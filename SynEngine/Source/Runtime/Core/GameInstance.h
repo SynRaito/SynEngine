@@ -7,6 +7,7 @@
 #include "InputReceiver.h"
 #include "GameObject.h"
 #include "../Engine/PTR.h"
+#include "../../Developer/Log/Log.h"
 
 namespace Syn::Core {
 
@@ -17,16 +18,16 @@ namespace Syn::Core {
 		~GameInstance();
 
 	private:
-		std::vector<Syn::Core::GameObject> GameObjects;
+		std::vector<Syn::Engine::PTR<Syn::Core::GameObject>> gameObjects;
 
 	public:
-		Syn::Core::Window* Window;
-		Syn::Core::Renderer* Renderer;
-		Syn::Core::InputReceiver InputReceiver;
-		Syn::Engine::ObjectGC GarbageCollector;
+		Syn::Core::Window* window;
+		Syn::Core::Renderer* renderer;
+		Syn::Core::InputReceiver inputReceiver;
+		Syn::Engine::ObjectGC garbageCollector;
 		
 
-		void CreateWindow(int width, int height, const char* name = "");
+		void CreateNewWindow(int width, int height, const char* name = "");
 		void SetViewport(int width, int height);
 		void HandleInputRegisters();
 
@@ -43,10 +44,13 @@ namespace Syn::Core {
 
 	template<class T>
 	inline Syn::Engine::PTR<T> Syn::Core::GameInstance::CreateGameObject()
-	{
+	{	
 		Syn::Engine::PTR<T>* NewObject = new Syn::Engine::PTR<T>;
 		
-		GarbageCollector.AddObject(*NewObject);
+		static_cast<Syn::Engine::PTR<GameObject>>(*NewObject).Get().Begin();
+
+		garbageCollector.AddObject(*NewObject);
+		gameObjects.push_back(*NewObject);
 
 		return *NewObject;
 	}

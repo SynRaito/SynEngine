@@ -17,20 +17,21 @@ namespace Syn {
 
 		// TEST PURPOSES
 
-		GameInstance.CreateWindow(1000, 1000, "Test");
+		GameInstance.CreateNewWindow(1000, 1000, "Test");
 
 		//TEST PURPOSES
+
 
 		//Game Loop
 		while (true) {
 			//Input
-			GameInstance.InputReceiver.ProcessInputs(GameInstance.Window);
+			GameInstance.inputReceiver.ProcessInputs(GameInstance.window);
 			
 			//Render Loop
 			GameInstance.Update();
 
 			//Garbage Collection
-			GameInstance.GarbageCollector.VisitObjects();
+			GameInstance.garbageCollector.VisitObjects();
 		}
 	}
 }
