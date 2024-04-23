@@ -87,7 +87,7 @@ namespace Syn
 
             void operator ()(T... args)
             {
-                return (*this->ObjRef.rawPtr.*this->FuncRef)(args...);
+                return (this->ObjRef.Get().*this->FuncRef)(args...);
             }
         };
 

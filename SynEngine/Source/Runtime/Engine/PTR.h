@@ -19,7 +19,10 @@ namespace Syn::Engine {
 	class SYN_API PTR : public IGarbageCollectable {
 		friend class Syn::Core::GameInstance;
 
-	public:
+		template<class U>
+		friend class PTR;
+
+	private:
 
 		std::shared_ptr<T> rawPtr;
 		bool* isValid = nullptr;
@@ -35,6 +38,7 @@ namespace Syn::Engine {
 		}
 
 	public:
+
 		PTR()
 		{
 			if (rawPtr.use_count() == 0)
